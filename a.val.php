@@ -24,12 +24,12 @@ if(isset($_POST['pseudo'])){
 	
 	if(!preg_match('/^[A-Za-z0-9_\-]+$/', $pseudo) || $c != 0){
 		if(!preg_match('/^[A-Za-z0-9_\-]+$/', $pseudo))
-			$echo = '<div style="color:#BBBBBB;font-size:13px;">N\'utiliser que des lettres et des chiffres</div>';
+			$echo = '<div style="color:#BBBBBB;font-size:13px;">Please only use letters and numbers</div>';
 		if($c != 0)
-			$echo = '<div style="color:#BBBBBB;font-size:13px;">'.$pseudo.' n\'est pas disponible !</div>';
+			$echo = '<div style="color:#BBBBBB;font-size:13px;">'.$pseudo.' is not available!</div>';
 	}
 	else{
-		$echo = '<div style="color:#333333;font-size:13px;">'.$pseudo.' est disponible.</div>';
+		$echo = '<div style="color:#333333;font-size:13px;">'.$pseudo.' is available.</div>';
 	}
 }
 

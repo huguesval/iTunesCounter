@@ -7,10 +7,9 @@ session(true);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Afficher vos résultats | iTunesCounter</title>
-<meta name="description" content="iTunes Counter permet de calculer le temps que vous avez écoutez votre bibliothèque iTunes. Affichage de vos résultats."/>
-<meta name="keywords" content="iTunes, itune, calculer, calculez, calcul, bibliothèque, bibliotheque, écoute, ecoute, écouter, ecouter, temps, ,afficher, résultat" />
-<meta name="author" content="Hugues Valentin" />
+<title>Show Result | iTunesCounter</title>
+<meta name="description" content=""/>
+<meta name="keywords" content="" />
 <link rel="stylesheet" media="screen" type="text/css" href="design.css" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/fonctions.js"></script>
@@ -25,7 +24,7 @@ table{border-collapse:collapse;}
 	<div id="wrappermiddle">
 		<div id="wrappermiddle-in">
 				<br />
-				<h2>Résultats</h2>
+				<h2>Results</h2>
 				<?php
 					// Avoid infinite array
 					$_SESSION['genre'][0] = -1;
@@ -44,26 +43,26 @@ table{border-collapse:collapse;}
 				?>
 			<table width="600px" align="center">
 				<tr><th width="50%">&nbsp;</th><th width="50%">&nbsp;</th></tr>
-				<tr><td class="right">Nombre de musique</td><td class="left"><?php echo $_SESSION['music'];?></td></tr>
-				<tr><td class="right">Nombre de podcast</td><td class="left"><?php echo $_SESSION['podcast'];?></td></tr>
-				<tr><td class="right">Durée de la bibliothèque </td><td class="left"><?php echo timeMicroToDays($_SESSION['tps']); ?></td></tr>
-				<tr><td class="right">Temps d'écoute</td><td class="left"><?php echo timeMicroToDays($_SESSION['tpstot']);?></td></tr>
-				<tr><td class="right">Genre préféré</td><td class="left"><?php echo $_SESSION['genreMaxString'].' ('.$_SESSION['genreMaxValue'].' musiques)';?></td></tr>
-				<tr><td class="right">Musique la plus écoutée</td><td class="left"><?php echo $_SESSION['TrackName'].' ('.$_SESSION['maxCount'].' écoutes)';?></td></tr>
+				<tr><td class="right">Musics</td><td class="left"><?php echo $_SESSION['music'];?></td></tr>
+				<tr><td class="right">Podcasts</td><td class="left"><?php echo $_SESSION['podcast'];?></td></tr>
+				<tr><td class="right">Total library time</td><td class="left"><?php echo timeMicroToDays($_SESSION['tps']); ?></td></tr>
+				<tr><td class="right">Total listen time</td><td class="left"><?php echo timeMicroToDays($_SESSION['tpstot']);?></td></tr>
+				<tr><td class="right">Prefered genre</td><td class="left"><?php echo $_SESSION['genreMaxString'].' ('.$_SESSION['genreMaxValue'].' musiques)';?></td></tr>
+				<tr><td class="right">Prefered music</td><td class="left"><?php echo $_SESSION['TrackName'].' ('.$_SESSION['maxCount'].' écoutes)';?></td></tr>
 			</table>
 			<br />
-			Vous pouvez enregistrer votre résultat pour vous comparer aux autres !<br />
-			Entrez votre adresse mail :<br />
+			You can save your results and compare to the others !<br />
+			Please enter your email address:<br />
 			<div id="aff"></div>
 			<form name="sub" action="results.php" method="post">
-			<input type="text" name="mail" value="" id="mail" /><br /><span style="color:#FFFFFF;font-size:11px;">Il ne sera pas affiché aux autres</span>
+			<input type="text" name="mail" value="" id="mail" /><br /><span style="color:#FFFFFF;font-size:11px;">It won't be shown to others</span>
 			<div id="ok">
-				Vous avez déjà envoyé votre bibliothèque sous le pseudo<br /><strong><span id="pseudodeja"></span></strong><br />Cliquer sur suivant :<br />
+				You already uploaded some results with the username:<br /><strong><span id="pseudodeja"></span></strong><br />Click on next:<br />
 				<input type="submit" class="bsuivant" value=" " />
 				<input type="hidden" value="" name="formpseudo" id="formpseudo" />
 			</div>
 			<div id="new">
-				C'est la première fois que vous proposez votre bibliothèque, veuillez entrer un nom d'utilisateur :<br />
+				It's the first time, please enter a username<br />
 				<input type="text" name="pseudo" value="" id="pseudo" />
 				<div id="explication_pseudo"></div>
 				<div id="bsuivanthidden" style="display:none;">
@@ -71,25 +70,16 @@ table{border-collapse:collapse;}
 				</div>
 			</div>
 			<div id="wrongmail">
-				L'adresse mail entrée n'est pas correcte, veuillez la modifier<br />
+				The mail address is wrong, please correct<br />
 			</div>
 			</form><br /><br />
-			<a href="results.php?free">Ne pas enregistrer mes résultats</a>
+			<a href="results.php?free">Don't save my results</a>
 		</div>
 	</div>
 	<div id="wrapperbottom"></div>
 	<script type="text/javascript">
 				checkMail();
 				checkPseudo();
-			</script>
-			<script type="text/javascript">
-			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-			</script>
-			<script type="text/javascript">
-			var pageTracker = _gat._getTracker("UA-3626555-3");
-			pageTracker._initData();
-			pageTracker._trackPageview();
 			</script>
 </body>
 </html>

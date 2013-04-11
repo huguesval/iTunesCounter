@@ -8,7 +8,7 @@ session(true);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Veuillez patienter pendant que le serveur effectue les calculs | iTunesCounter</title>
+<title>Please wait while the server computes | iTunesCounter</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="author" content="Hugues Valentin" />
@@ -22,12 +22,12 @@ session(true);
 	<div id="wrappertop"></div>
 	<div id="wrappermiddle">
 		<div id="wrappermiddle-in">
-			Veuillez patienter pendant que le serveur effectue les calculs.<br />
+			Please wait while the server computes<br />
 			<div id="progressbar2"></div>
 			<div id="return">
-				Bravo ! <br />
-				Toutes les informations sur votre bibliothèque ont été récupérées.<br />
-				Pour les voir, cliquer sur suivant : <br />
+				Great !<br />
+				Everything went well<br />
+				Click on next<br />
 				<a href="res.php">
 					<span class="suivant">&nbsp;</span>
 				</a>
@@ -39,14 +39,5 @@ session(true);
 		</div>
 	</div>
 	<div id="wrapperbottom"></div>
-	<script type="text/javascript">
-	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-	var pageTracker = _gat._getTracker("UA-3626555-3");
-	pageTracker._initData();
-	pageTracker._trackPageview();
-	</script>
 </body>
 </html>

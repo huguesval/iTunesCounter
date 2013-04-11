@@ -13,13 +13,13 @@ if((isset($_POST['pseudo']) || isset($_POST['formpseudo'])) && isset($_POST['mai
 		$pseudo = ssAccents(verifbdd($_POST['formpseudo']));
 	}
 	else
-		$error .= 'Votre pseudo n\'est pas bon. Veuillez retourner à <a href="res.php">la page précédente</a>';
+		$error .= 'Your username isn\'t good. Please go <a href="res.php">back</a>';
 	$_SESSION['pseudo'] = $pseudo;
 	if(preg_match('/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/', $_POST['mail'])){
 		$mail = verifbdd($_POST['mail']);
 	}
 	else 
-		$error .= 'Votre adresse mail n\'a pas le bon format';
+		$error .= 'Your email address is not at the right format';
 	
 	$req = query('SELECT mail, pseudo FROM itunescounter WHERE mail LIKE "'.$mail.'"');
 	$c = mysql_num_rows($req);
@@ -27,7 +27,7 @@ if((isset($_POST['pseudo']) || isset($_POST['formpseudo'])) && isset($_POST['mai
 	if($c != 0){
 		// Check that pseudo is good
 		if(mysql_result($req,0,"pseudo") != $pseudo)
-			$error .= 'Votre pseudo n\'est pas bon. Veuillez retourner à <a href="res.php">la page précédente</a>';
+			$error .= 'Your username is not good. Please come <a href="res.php">back</a>';
 	}
 	if($error == '')	// On enregistre quand même
 		query('INSERT INTO itunescounter VALUES ("","'.time().'","'.$mail.'","'.$pseudo.'","'.$_SESSION['tps'].'","'.$_SESSION['tpstot'].'","'.$_SESSION['music'].'","'.$_SESSION['genreMaxString'].'","'.$_SESSION['genreMaxValue'].'","'.$_SESSION['TrackName'].'","'.$_SESSION['maxCount'].'","'.$_SESSION['podcast'].'")');
@@ -43,9 +43,8 @@ if((isset($_POST['pseudo']) || isset($_POST['formpseudo'])) && isset($_POST['mai
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Voir tous les résultats | iTunesCounter</title>
-<meta name="description" content="iTunes Counter permet de calculer le temps que vous avez écoutez votre bibliothèque iTunes. Savoir combien de temps vous avez écoutez votre musique au total, savoir le genre de musique que vous écoutez le plus et bien d'autres choses !"/>
-<meta name="keywords" content="iTunes, itune, calculer, calculez, calcul, bibliothèque, bibliotheque, écoute, ecoute, écouter, ecouter, temps, " />
-<meta name="author" content="Hugues Valentin" />
+<meta name="description" content=""/>
+<meta name="keywords" content="" />
 <link rel="stylesheet" media="screen" type="text/css" href="design.css" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/fonctions.js"></script>
@@ -64,9 +63,9 @@ table{border-collapse:collapse;}
 		<br />
 		<?php
 		if(!isset($_GET['mine']))
-			echo '<h2>Toutes les bibliothèques</h2><a href="results.php?mine">Suivre l\'évolution de sa bibliothèque</a><br /><br />';
+			echo '<h2>All Libraries</h2><a href="results.php?mine">Only see my results</a><br /><br />';
 		else
-			echo '<h2>Ma bibliothèque</h2><a href="results.php?free">Voir toutes les bibliothèques</a><br /><br />';
+			echo '<h2>My Library</h2><a href="results.php?free">see all libraries</a><br /><br />';
 		?>
 		<?php echo $error; ?>
 		<?php if(!isset($_GET['mine'])){?>
@@ -115,7 +114,7 @@ table{border-collapse:collapse;}
 		else{
 		?>
 			<table align="center">
-			<tr><th><a href="results.php?mine&c=date">date</a></th><!--<th><a href="results.php?mine&c=pseudo">pseudo</a></th>--><th><a href="results.php?mine&c=music">musiques</a></th><th><a href="results.php?mine&c=tps">Durée</a></th><th><a href="results.php?mine&c=tpstot">Temps d'écoute</a></th><th><a href="results.php?mine&c=countgenre">Genre</a></th><th><a href="results.php?mine&c=countmostlistened">Musique + écoutée</a></th><th><a href="results.php?mine&c=podcast">podcast</a></th></tr>
+			<tr><th><a href="results.php?mine&c=date">date</a></th><!--<th><a href="results.php?mine&c=pseudo">pseudo</a></th>--><th><a href="results.php?mine&c=music">musics</a></th><th><a href="results.php?mine&c=tps">time</a></th><th><a href="results.php?mine&c=tpstot">total time</a></th><th><a href="results.php?mine&c=countgenre">Genre</a></th><th><a href="results.php?mine&c=countmostlistened">Most listened track</a></th><th><a href="results.php?mine&c=podcast">podcast</a></th></tr>
 		<?php
 		$req = query('SELECT * FROM itunescounter WHERE pseudo LIKE "'.$_SESSION['pseudo'].'" ORDER BY '.verifbdd($_GET['c']).' DESC');
 			$c = mysql_num_rows($req);
@@ -139,15 +138,6 @@ table{border-collapse:collapse;}
 		</div>
 	</div>
 	<div id="wrapperbottom"></div>
-	<script type="text/javascript">
-	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-	var pageTracker = _gat._getTracker("UA-3626555-3");
-	pageTracker._initData();
-	pageTracker._trackPageview();
-	</script>ript>
 </body>
 </html>
-<?php deconnect();?>
+<?php deconnect(); ?>
