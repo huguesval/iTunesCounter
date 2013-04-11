@@ -10,8 +10,8 @@ $_SESSION['uid'] = uniqid();
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Calculez votre temps d'écoute sur iTunes | iTunesCounter</title>
 <meta name="google-site-verification" content="-A_o1nNp-w8lt7GiA9czbz_fAhdN1oc-x7bbrZJ_rw4" />
-<meta name="description" content="iTunes Counter permet de calculer le temps que vous avez écoutez votre bibliothèque iTunes. Savoir combien de temps vous avez écoutez votre musique au total, savoir le genre de musique que vous écoutez le plus et bien d'autres choses !"/>
-<meta name="keywords" content="iTunes, itune, calculer, calculez, calcul, bibliothèque, bibliotheque, écoute, ecoute, écouter, ecouter, temps, " />
+<meta name="description" content=""/>
+<meta name="keywords" content="" />
 <meta name="author" content="Hugues Valentin" />
 <link rel="stylesheet" media="screen" type="text/css" href="design.css" />
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -26,26 +26,27 @@ $_SESSION['uid'] = uniqid();
 <div id="wrappertop"></div>
 	<div id="wrappermiddle">
 		<div id="wrappermiddle-in">
-		Bienvenue sur iTunes Counter, le site internet qui permet de calculer le temps d'écoute totale sur iTunes.<br />
-		Mais iTunes Counter ne permet pas que cela ! Il vous donnera aussi :
+		Welcome to iTunes Counter, a web site that allows you to calculate your total listen time on iTunes
+		<br />
+		You will also retrieve :
 		<ul>
-			<li>Le temps total de votre bibliothèque</li>
-			<li>Le genre de musique que vous préférez</li>
-			<li>La musique que vous écoutez le plus</li>
+			<li>Your library total time</li>
+			<li>Genre that you listen the most</li>
+			<li>Music that you listen the most</li>
 			<li>...</li>
 		</ul>
-		Pour voir toutes ces informations, il vous suffit de cliquer sur Uploader.<br />Sélectionner le fichier iTunes Music Library.xml qui se trouve :<br />
-		Sur un Mac dans ~/Music/iTunes<br />
-		Sur un PC dans Mes Documents\iTunes<br />
+		To begin, just select your iTunes Music Library.xml that can be found:<br />
+		In ~/Music/iTunes on a Mac<br />
+		My Documents\iTunes on a PC<br />
 		<div id="bbb"><input type="button" id="button" /></div>
 		<div id="uploadprogressbar"></div>
 		<div id="progressbar"></div>
 		<div id="suivant"><br />
-			L'envoi s'est bien déroulé. Cliquer sur Suivant pour lancer les calculs :
+			The upload went well. Click on Next to compute the results:
 			<a href="run.php"><span class="suivant">&nbsp;</span></a>
 		</div>
 		<div id="error"><br />
-			Oups ! Une erreur s'est produite pendant le chargement. <a href="index.php">Cliquer ici</a> pour recharger la page.
+			Oops! Something went wrong during the download. Please click <a href="index.php">here</a> to reload the page.
 		</div>
 		</div>
 	</div>
@@ -53,14 +54,6 @@ $_SESSION['uid'] = uniqid();
 	<script type="text/javascript">
 				upload('<?php echo $_SESSION['uid']?>');
 			</script>
-			<script type="text/javascript">
-			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-			</script>
-			<script type="text/javascript">
-			var pageTracker = _gat._getTracker("UA-3626555-3");
-			pageTracker._initData();
-			pageTracker._trackPageview();
-			</script>
+			
 </body>
 </html>
